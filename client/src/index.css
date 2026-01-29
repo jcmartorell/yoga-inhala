@@ -1,0 +1,79 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Warm Beige Palette - Inhara Yoga Style */
+  --background: 40 30% 97%;       /* #F9F7F2 */
+  --foreground: 30 15% 15%;       /* #2C2621 */
+  
+  --primary: 28 45% 55%;          /* #A67C58 Terracotta/Earthy Brown */
+  --primary-foreground: 40 30% 97%;
+  
+  --secondary: 35 20% 88%;        /* #E6E2D8 */
+  --secondary-foreground: 30 15% 20%;
+  
+  --muted: 35 18% 85%;
+  --muted-foreground: 30 12% 45%;
+  
+  --accent: 35 25% 90%;
+  --accent-foreground: 30 15% 20%;
+  
+  --card: 40 30% 97%;             /* Same as bg for seamless look */
+  --card-foreground: 30 15% 15%;
+  
+  --border: 35 20% 85%;
+  --input: 35 20% 85%;
+  --ring: 28 45% 55%;
+  
+  --radius: 0.75rem;
+  
+  --font-display: 'Playfair Display', serif;
+  --font-body: 'Inter', sans-serif;
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    @apply bg-background text-foreground font-body antialiased selection:bg-primary/20 selection:text-foreground;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-display);
+    @apply tracking-wide font-medium;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+  
+  /* Smooth fade in animation */
+  .fade-in-up {
+    animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  
+  @keyframes fadeInUp {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .delay-100 { animation-delay: 100ms; }
+  .delay-200 { animation-delay: 200ms; }
+  .delay-300 { animation-delay: 300ms; }
+}
